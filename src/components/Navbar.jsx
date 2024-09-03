@@ -42,11 +42,9 @@ const Navbar = () => {
             <input type="checkbox" onChange={handleTheme} />
             {/* Sun Icon */}
             <BsSunFill className="swap-on h-4 w-4" />
-
             {/* Moon Icon */}
             <BsMoonFill className="swap-off h-4 w-4" />
           </label>
-
           {/* CART LINK */}
           <NavLink to="/cart" className="btn btn-ghost btn-circle btn-md ml-4">
             <div className="indicator">
