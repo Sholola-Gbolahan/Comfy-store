@@ -1,27 +1,37 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs"
 import { FaBarsStaggered } from "react-icons/fa6"
 import { NavLink } from "react-router-dom"
 
-//2. Object setup to hold themes name
 const themes = {
   winter: "winter",
   dracula: "dracula",
 }
+// A function to get the theme from local storage
+const getThemeFromLocalStorage = () => {
+  // 4. Getting the theme value and setting up a defualt value if local storage is empty
+  return localStorage.getItem("theme") || themes.winter
+}
 
 const Navbar = () => {
-  //3. Setting the default value of theme to winter
-  const [theme, setTheme] = useState(themes.winter)
+  // 5. Getting the theme value from local storage
+  const [theme, setTheme] = useState(getThemeFromLocalStorage())
   const handleTheme = () => {
-    // 4. Getting the themes values
     const { winter, dracula } = themes
-    //5. Checking to see if the theme value is winter and if so changing the value to dracula.
     const newTheme = theme === winter ? dracula : winter
-    // 6. Entering the document element root to setup new entering of "Data-theme"
-    document.documentElement.setAttribute("data-theme", theme)
-    //7. storing the new theme selection into theme state
     setTheme(newTheme)
   }
+  // This condition is to add HTML element and store the value in local storage
+  useEffect(
+    () => {
+      //2. storing theme value into html element
+      document.documentElement.setAttribute("data-theme", theme)
+      //3. storing the the value into local storage
+      localStorage.setItem("theme", theme)
+    },
+    //1.Setting condition to run every time the theme value changes
+    [theme]
+  )
 
   return (
     <nav className="bg-base-200">
