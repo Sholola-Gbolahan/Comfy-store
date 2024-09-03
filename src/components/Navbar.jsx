@@ -2,36 +2,27 @@ import { useEffect, useState } from "react"
 import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs"
 import { FaBarsStaggered } from "react-icons/fa6"
 import { NavLink } from "react-router-dom"
+import NavLinks from "./Navlinks"
 
 const themes = {
   winter: "winter",
   dracula: "dracula",
 }
-// A function to get the theme from local storage
 const getThemeFromLocalStorage = () => {
-  // 4. Getting the theme value and setting up a defualt value if local storage is empty
   return localStorage.getItem("theme") || themes.winter
 }
 
 const Navbar = () => {
-  // 5. Getting the theme value from local storage
   const [theme, setTheme] = useState(getThemeFromLocalStorage())
   const handleTheme = () => {
     const { winter, dracula } = themes
     const newTheme = theme === winter ? dracula : winter
     setTheme(newTheme)
   }
-  // This condition is to add HTML element and store the value in local storage
-  useEffect(
-    () => {
-      //2. storing theme value into html element
-      document.documentElement.setAttribute("data-theme", theme)
-      //3. storing the the value into local storage
-      localStorage.setItem("theme", theme)
-    },
-    //1.Setting condition to run every time the theme value changes
-    [theme]
-  )
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme)
+    localStorage.setItem("theme", theme)
+  }, [theme])
 
   return (
     <nav className="bg-base-200">
@@ -54,12 +45,16 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-small dropdown-content mt-3 z-[1] p-2 shadow bg-base-200"
             >
-              Nav Links
+              {/* Adding Links to dropdown */}
+              <NavLinks />
             </ul>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal"> Nav links</ul>
+          <ul className="menu menu-horizontal">
+            {/* Adding Links to menu */}
+            <NavLinks />{" "}
+          </ul>
         </div>
         <div className="navbar-end">
           {/* THEME SETUP */}
