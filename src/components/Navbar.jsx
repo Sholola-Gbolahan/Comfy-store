@@ -3,11 +3,26 @@ import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs"
 import { FaBarsStaggered } from "react-icons/fa6"
 import { NavLink } from "react-router-dom"
 
+//2. Object setup to hold themes name
+const themes = {
+  winter: "winter",
+  dracula: "dracula",
+}
+
 const Navbar = () => {
-  const [theme, setTheme] = useState(false)
+  //3. Setting the default value of theme to winter
+  const [theme, setTheme] = useState(themes.winter)
   const handleTheme = () => {
-    setTheme(!theme)
+    // 4. Getting the themes values
+    const { winter, dracula } = themes
+    //5. Checking to see if the theme value is winter and if so changing the value to dracula.
+    const newTheme = theme === winter ? dracula : winter
+    // 6. Entering the document element root to setup new entering of "Data-theme"
+    document.documentElement.setAttribute("data-theme", theme)
+    //7. storing the new theme selection into theme state
+    setTheme(newTheme)
   }
+
   return (
     <nav className="bg-base-200">
       <div className="navbar align-element">
