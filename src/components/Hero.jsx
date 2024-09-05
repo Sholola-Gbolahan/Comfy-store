@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom"
-// 1. Impo=rting all images to use in carousal
 import hero1 from "../assets/hero1.webp"
 import hero2 from "../assets/hero2.webp"
 import hero3 from "../assets/hero3.webp"
 import hero4 from "../assets/hero4.webp"
 
 const Hero = () => {
-  // 3. Storing all carousel images into variable
   const carouseImages = [hero1, hero2, hero3, hero4]
 
   return (
@@ -28,9 +26,8 @@ const Hero = () => {
         </div>
       </div>
       {/* CAROUSAL DISPLAY - NOT VISIBLE ON SMALL SCREEN */}
-      {/* 2. Creating a parent carousel container */}
+
       <div className="hidden h-[28rem] lg:carousel carousel-center p-4 space-x-4 bg-neural rounded-box ">
-        {/* 4. Iterating over all images */}
         {carouseImages.map((img) => {
           return (
             <div key={img} className="carousel-item">
