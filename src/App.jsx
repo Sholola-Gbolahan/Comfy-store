@@ -9,6 +9,13 @@ import {
   Register,
   SingleProduct,
 } from "./pages"
+
+import { ErrorElement } from "./components"
+
+// LOADER
+import { loader as landingLoader } from "./pages/Landing"
+
+// ACTIONS
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 
 const router = createBrowserRouter([
@@ -17,7 +24,12 @@ const router = createBrowserRouter([
     element: <HomeLayout />,
     errorElement: <Error />,
     children: [
-      { index: true, element: <Landing /> },
+      {
+        index: true,
+        element: <Landing />,
+        errorElement: <ErrorElement />,
+        loader: landingLoader,
+      },
 
       {
         path: "/cart",
