@@ -2,13 +2,13 @@ import { Filter, PaginationContainer, ProductsContainer } from "../components"
 import { customFetch } from "../utils"
 
 const url = "/products"
-export const loader = async ({ request }) => {
+export const loader = async () => {
   const response = await customFetch(url)
 
   const products = response.data.data
   const meta = response.data.meta
 
-  return { meta, products }
+  return { products, meta }
 }
 
 const Products = () => {
