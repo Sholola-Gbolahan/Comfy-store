@@ -1971,7 +1971,7 @@ export default Filters
 
 - setup input for select input
 - render for categories, companies and order
-- companies and categories values are located in meta
+- load companies and categories values located in meta
 
 ### FormSelect.jsx
 
