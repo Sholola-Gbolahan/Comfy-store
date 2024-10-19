@@ -16,15 +16,15 @@ const SingleProduct = () => {
   const { product } = useLoaderData()
   const { image, title, price, company, description, colors } =
     product.attributes
-  const amount = formatPrice(price)
+  const dollarsAmount = formatPrice(price)
   // Color is an array and the first item is set to be the default.
   const [productColor, setProductColor] = useState(colors[0])
 
-  const [totalPick, setTotalPick] = useState(1)
+  const [amount, setAmount] = useState(1)
 
   const handleAmount = (e) => {
     // parseInt is converting the text into number
-    setTotalPick(parseInt(e.target.value))
+    setAmount(parseInt(e.target.value))
   }
 
   const dispatch = useDispatch()
@@ -78,7 +78,7 @@ const SingleProduct = () => {
             {company}
           </h4>
 
-          <p className="mt-3 text-xl">{amount}</p>
+          <p className="mt-3 text-xl">{dollarsAmount}</p>
 
           <p className="mt-6 leading-8">{description}</p>
 
@@ -104,20 +104,21 @@ const SingleProduct = () => {
             </div>
           </div>
 
-          {/* TOTALPICK*/}
+          {/* AMOUNT */}
           <div className="form-control w-full max-w-xs">
-            <label className="label" htmlFor="totalPick">
+            <label className="label">
               <h4 className="text-md font-medium tracking-wider capitalize">
                 amount
               </h4>
             </label>
             <select
-              id="totalPick"
               className="select select-secondary select-bordered select-md"
-              value={totalPick}
+              value={amount}
               onChange={handleAmount}
             >
-              {generateAmountOptions(20)}
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
             </select>
           </div>
 
