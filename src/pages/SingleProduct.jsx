@@ -1,8 +1,7 @@
 import { useLoaderData } from "react-router-dom"
-import { formatPrice, customFetch } from "../utils"
+import { formatPrice, customFetch, generateAmountOptions } from "../utils"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import { generateAmountOptions } from "../utils"
 import { useDispatch, useSelector } from "react-redux"
 import { addItem } from "../features/cart/cartslice"
 
@@ -116,9 +115,7 @@ const SingleProduct = () => {
               value={amount}
               onChange={handleAmount}
             >
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
+              {generateAmountOptions(amount + 7)}
             </select>
           </div>
 

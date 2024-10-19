@@ -10,9 +10,17 @@ const defaultState = {
   orderTotal: 0,
 }
 
+// A function getting updated values from local storage
+const getCartFromLocalStorage = () => {
+  // json.parse is converting string to object as local storage stores in strings
+  // defaultState is returned if there's no value in localStorage
+  return JSON.parse(localStorage.getItem("cart")) || defaultState
+}
+
 const cartSlice = createSlice({
   name: "cart",
-  initialState: defaultState,
+  // Updating initial state with getCartFromLocalStorage function
+  initialState: getCartFromLocalStorage(),
 
   reducers: {
     addItem: (state, action) => {
