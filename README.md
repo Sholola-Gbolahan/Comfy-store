@@ -2736,6 +2736,8 @@ const SingleProduct = () => {
 }
 ```
 
+-
+
 ## Challenge (34) - AddItem Reducer
 
 - display cartItems in Navbar
