@@ -40,9 +40,8 @@ const cartSlice = createSlice({
       // 7. Updating totals, localStorage and ordertotal in state
       state.numItemsInCart += product.amount
       state.cartTotal += product.price * product.amount
-      state.tax = 0.1 * state.cartTotal
-      state.orderTotal = state.cartTotal + state.shipping + state.tax
-      localStorage.setItem("cart", JSON.stringify(state))
+      cartSlice.caseReducers.calculateTotals(state)
+
       toast.success("item added to cart")
     },
 
@@ -50,6 +49,11 @@ const cartSlice = createSlice({
 
     removeItem: (state, action) => {},
     editItem: (state, action) => {},
+    calculateTotals: (state) => {
+      state.tax = 0.1 * state.cartTotal
+      state.orderTotal = state.cartTotal + state.shipping + state.tax
+      localStorage.setItem("cart", JSON.stringify(state))
+    },
   },
 })
 
