@@ -67,7 +67,7 @@ const cartSlice = createSlice({
       state.cartTotal += item.price * (amount - item.amount)
       item.amount = amount
       cartSlice.caseReducers.calculateTotals(state)
-      toast.error("Item removed")
+      toast.success("Item updated")
     },
     calculateTotals: (state) => {
       state.tax = 0.1 * state.cartTotal
