@@ -11,6 +11,6 @@ import { Provider } from "react-redux"
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <App />
-    <ToastContainer position="top-right" />
+    <ToastContainer position="bottom-right" />
   </Provider>
 )

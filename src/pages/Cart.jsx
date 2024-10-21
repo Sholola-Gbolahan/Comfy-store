@@ -3,7 +3,8 @@ import { SectionTitle, CartItemList, CartTotals } from "../components"
 import { useSelector } from "react-redux"
 
 const Cart = () => {
-  const user = null
+  // accessing user
+  const user = useSelector((state) => state.userState.user)
   const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart)
   console.log(numItemsInCart)
 
