@@ -18,6 +18,7 @@ import { loader as singlePageLoader } from "./pages/SingleProduct"
 import { loader as productsLoader } from "./pages/Products"
 
 // ACTIONS
+import { action as registerAction } from "./pages/Register"
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 
 const router = createBrowserRouter([
@@ -66,6 +67,7 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
     errorElement: <Error />,
+    action: registerAction,
   },
 ])
 
