@@ -8,6 +8,8 @@ import {
   Products,
   Register,
   SingleProduct,
+  Orders,
+  Checkout,
 } from "./pages"
 
 import { ErrorElement } from "./components"
@@ -55,6 +57,16 @@ const router = createBrowserRouter([
         element: <SingleProduct />,
         errorElement: <ErrorElement />,
         loader: singlePageLoader,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
+        errorElement: <ErrorElement />,
+      },
+      {
+        path: "orders",
+        element: <Orders />,
+        errorElement: <ErrorElement />,
       },
     ],
   },
