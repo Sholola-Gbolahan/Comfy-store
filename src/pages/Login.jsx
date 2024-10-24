@@ -1,9 +1,12 @@
 import { FormInput, SubmitBtn } from "../components"
-import { Form, Link } from "react-router-dom"
+import { Form, Link, useNavigate } from "react-router-dom"
 import { redirect } from "react-router-dom"
 import { customFetch } from "../utils"
 import { toast } from "react-toastify"
 import { loginUser } from "../features/user/UserSlice"
+import { useDispatch } from "react-redux"
+
+const url = "/auth/local"
 
 export const action =
   (store) =>
@@ -11,7 +14,7 @@ export const action =
     const formData = await request.formData()
     const data = Object.fromEntries(formData)
     try {
-      const response = await customFetch.post("/auth/local/", data)
+      const response = await customFetch.post(url, data)
       // Accessing loginUser Reducer directly using store dispatch
       store.dispatch(loginUser(response.data))
       toast.success("Login successful")
@@ -27,6 +30,25 @@ export const action =
   }
 
 const Login = () => {
+  const navigate = useNavigate()
+
+  const dispatch = useDispatch()
+
+  const loginAsGuestUser = async () => {
+    try {
+      const resp = await customFetch.post(url, {
+        identifier: "text@text.com",
+        password: "secret",
+      })
+      dispatch(loginUser(resp.data))
+      toast.success("Welcome, guest user")
+      navigate("/")
+    } catch (error) {
+      console.log(error)
+      toast.error("guest user login error")
+    }
+  }
+
   return (
     <section className="h-screen grid place-items-center">
       <Form
@@ -34,22 +56,16 @@ const Login = () => {
         className="card w-96 p-8 bg-base-100 shadow-lg flex flex-col gap-y-4 "
       >
         <h4 className="text-center text-3xl font-bold">Login</h4>
-        <FormInput
-          type="email"
-          label="email"
-          name="identifier"
-          defaultValue="text@text.com"
-        />
-        <FormInput
-          type="password"
-          label="password"
-          name="password"
-          defaultValue="secret"
-        />
+        <FormInput type="email" label="email" name="identifier" />
+        <FormInput type="password" label="password" name="password" />
         <div className="mt-4">
           <SubmitBtn text="Login" />
         </div>
-        <button type="button" className="btn btn-secondary">
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={loginAsGuestUser}
+        >
           guest user
         </button>
         <p className="text-center">
