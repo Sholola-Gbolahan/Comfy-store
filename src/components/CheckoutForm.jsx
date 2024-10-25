@@ -31,8 +31,12 @@ export const action =
       return redirect("/")
     } catch (error) {
       console.log(error)
-      const errorMessage = error?.response?.data?.message || "Order not placed"
+      const errorMessage =
+        error?.response?.data?.message ||
+        "there was an error placing your order"
       toast.error(errorMessage)
+      if (error?.response?.status === 401 || 403) return redirect("/login")
+      return null
     }
   }
 
