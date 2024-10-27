@@ -1,7 +1,7 @@
-import { redirect } from "react-router-dom"
+import { redirect, useLoaderData } from "react-router-dom"
 import { customFetch } from "../utils"
 import { toast } from "react-toastify"
-import { SectionTitle } from "../components"
+import { OrderList, PaginationContainer, SectionTitle } from "../components"
 
 export const loader =
   (store) =>
@@ -37,7 +37,19 @@ export const loader =
   }
 
 const Orders = () => {
-  return <SectionTitle text="Orders" />
+  const { meta } = useLoaderData()
+
+  if (meta.pagination.total < 1) {
+    return <SectionTitle text="Please make an order" />
+  }
+
+  return (
+    <>
+      <SectionTitle text="Your Orders" />
+      <OrderList />
+      <PaginationContainer />
+    </>
+  )
 }
 
 export default Orders
