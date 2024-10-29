@@ -6,7 +6,7 @@ const url = "/products?featured=true"
 
 const featuredProductsQuery = {
   queryKey: ["featuredProducts"],
-  queryFn: () => customFetch(url),
+  queryFn: () => customFetch.get(url),
 }
 
 export const loader = (queryClient) => async () => {

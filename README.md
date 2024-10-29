@@ -4730,7 +4730,7 @@ export const loader = (queryClient) => async () => {
 }
 ```
 
-     ## Challenge (56) - Landing
+         ## Challenge (56) - Landing
 
 - setup react query and invoke in loader
 
@@ -4751,7 +4751,7 @@ export const loader = (queryClient) => async () => {
 }
 ```
 
-## Challenge (57) - Single Product
+            ## Challenge (57) - Single Product
 
 - setup react query and invoke in loader
 
