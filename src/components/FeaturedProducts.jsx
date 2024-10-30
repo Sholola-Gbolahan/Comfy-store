@@ -1,11 +1,11 @@
-import ProductsGrids from "./ProductsGrids"
+import FeaturedGrid from "./FeaturedGrid"
 import SectionTitle from "./SectionTitle"
 
 const FeaturedProducts = () => {
   return (
-    <div className="pt-24 " >
+    <div className="pt-24 ">
       <SectionTitle text="Featured Products" />
-      <ProductsGrids />
+      <FeaturedGrid />
     </div>
   )
 }
