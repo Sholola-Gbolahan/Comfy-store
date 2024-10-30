@@ -7,6 +7,23 @@ import {
   SectionTitle,
 } from "../components"
 
+const orderQuery = (params, user) => {
+  return {
+    queryKey: [
+      "orders",
+      user.username,
+      params.page ? parseInt(params.page) : 1,
+    ],
+    queryFn: () =>
+      customFetch.get("/orders", {
+        params,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }),
+  }
+}
+
 export const loader =
   (store, queryClient) =>
   async ({ request }) => {
@@ -20,12 +37,9 @@ export const loader =
     ])
 
     try {
-      const response = await customFetch.get("/orders", {
-        params,
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      })
+      const response = await queryClient.ensureQueryData(
+        orderQuery(params, user)
+      )
 
       console.log(response)
 
