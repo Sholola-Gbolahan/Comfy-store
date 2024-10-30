@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom"
 import { formatPrice, customFetch, generateAmountOptions } from "../utils"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { addItem } from "../features/cart/cartslice"
 
 const singleProductQuery = (id) => {
