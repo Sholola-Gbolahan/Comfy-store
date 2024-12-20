@@ -3,7 +3,7 @@ import { Form, Link, useNavigate } from "react-router-dom"
 import { redirect } from "react-router-dom"
 import { customFetch } from "../utils"
 import { toast } from "react-toastify"
-import { loginUser } from "../features/user/UserSlice"
+import { loginUser } from "../features/user/userSlice"
 import { useDispatch } from "react-redux"
 
 const url = "/auth/local"
