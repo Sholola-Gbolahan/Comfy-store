@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { FormInput, SubmitBtn } from "../components"
 import { Form, Link, useNavigate } from "react-router-dom"
 import { redirect } from "react-router-dom"

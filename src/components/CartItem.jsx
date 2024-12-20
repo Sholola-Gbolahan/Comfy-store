@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import { formatPrice, generateAmountOptions } from "../utils"
-import { removeItem, editItem } from "../features/cart/cartslice"
+import { removeItem, editItem } from "../features/cart/cartSlice"
 import { useDispatch } from "react-redux"
 
 const CartItem = ({ cartItem }) => {

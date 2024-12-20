@@ -24,7 +24,7 @@ const cartSlice = createSlice({
 
   reducers: {
     addItem: (state, action) => {
-      // 3. distructring the product values
+      // 3. destructuring the product values
       const { product } = action.payload
       // 4. checking into the cart Items to see if item is already existed, to increase it if so
       const item = state.cartItems.find((i) => i.cartID === product.cartID)
@@ -37,7 +37,7 @@ const cartSlice = createSlice({
         state.cartItems.push(product)
       }
 
-      // 7. Updating totals, localStorage and ordertotal in state
+      // 7. Updating totals, localStorage and orderTotal in state
       state.numItemsInCart += product.amount
       state.cartTotal += product.price * product.amount
       cartSlice.caseReducers.calculateTotals(state)
@@ -45,7 +45,7 @@ const cartSlice = createSlice({
       toast.success("item added to cart")
     },
 
-    clearCart: (state) => {
+    clearCart: () => {
       localStorage.setItem("cart", JSON.stringify(defaultState))
       return defaultState
     },
