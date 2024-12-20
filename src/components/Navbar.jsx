@@ -2,7 +2,7 @@
 import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs"
 import { FaBarsStaggered } from "react-icons/fa6"
 import { NavLink } from "react-router-dom"
-import NavLinks from "./Navlinks"
+import NavLinks from "./NavLinks"
 
 import { useDispatch, useSelector } from "react-redux"
 import { toggleTheme } from "../features/user/userSlice"
