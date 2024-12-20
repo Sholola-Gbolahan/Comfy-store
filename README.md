@@ -1971,7 +1971,7 @@ export default Filters
 
 - setup input for select input
 - render for categories, companies and order
-- companies and categories values are located in meta
+- load companies and categories values located in meta
 
 ### FormSelect.jsx
 
@@ -2735,6 +2735,8 @@ const SingleProduct = () => {
   )
 }
 ```
+
+-
 
 ## Challenge (34) - AddItem Reducer
 
@@ -4728,7 +4730,7 @@ export const loader = (queryClient) => async () => {
 }
 ```
 
-## Challenge (56) - Landing
+         ## Challenge (56) - Landing
 
 - setup react query and invoke in loader
 
@@ -4749,7 +4751,7 @@ export const loader = (queryClient) => async () => {
 }
 ```
 
-## Challenge (57) - Single Product
+            ## Challenge (57) - Single Product
 
 - setup react query and invoke in loader
 
