@@ -3,7 +3,7 @@ import { formatPrice, customFetch, generateAmountOptions } from "../utils"
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { addItem } from "../features/cart/cartslice"
+import { addItem } from "../features/cart/cartSlice"
 
 const singleProductQuery = (id) => {
   return {
