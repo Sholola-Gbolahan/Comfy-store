@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react"
+
 import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs"
 import { FaBarsStaggered } from "react-icons/fa6"
 import { NavLink } from "react-router-dom"
 import NavLinks from "./Navlinks"
 
 import { useDispatch, useSelector } from "react-redux"
-import { toggleTheme } from "../features/user/UserSlice"
+import { toggleTheme } from "../features/user/userSlice"
 
 const Navbar = () => {
   //1. importing the number of items in cart from the Cart state with useSelector

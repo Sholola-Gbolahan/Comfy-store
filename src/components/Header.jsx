@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 
 import { useDispatch, useSelector } from "react-redux"
-import { logoutUser } from "../features/user/UserSlice"
+import { logoutUser } from "../features/user/userSlice"
 import { clearCart } from "../features/cart/cartSlice"
 import { useQueryClient } from "@tanstack/react-query"
 
